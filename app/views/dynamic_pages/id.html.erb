@@ -1,0 +1,36 @@
+
+<h1> BIENVENUE  <%=@id%>! Ici c'est notre super site de potins, il est chouette, non ? </h1> <br>
+
+<div class="card-columns"> 
+
+
+<p><% Gossip.all.each do |gossip| %>
+    
+
+  <div class="card border-primary mb-3">
+  <div class="card-header">
+   Potin n°<%= gossip.id %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= gossip.title %>  </p>
+    <footer class="blockquote-footer"><%= gossip.user.first_name %> </br> </br> </cite></footer>
+    <a class="btn btn-secondary" <%= link_to 'Lien vers le gossip',gossip_path(gossip.id) %> 
+  </div>
+  <div class="card-footer">
+    </div>
+</div> 
+
+
+
+
+
+
+    <% end %></p>
+</div>  
+
+     
+
+
+    
+
+

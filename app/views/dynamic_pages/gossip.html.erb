@@ -1,0 +1,8 @@
+
+<h1> BIENVENUE  <%=@id%>! Ici c'est notre super site de potins, il est chouette, non ?</h1>
+
+<p> <%= Gossip.find(@id).user.first_name %>  </p>
+<%= link_to "Lien vers la fiche de l'auteur", author_path %>
+<p> <%= Gossip.find(@id).title %> </p>
+<p> <%= Gossip.find(@id).content %> </p>
+<p> <%= Gossip.find(@id).created_at %> </p>

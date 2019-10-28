@@ -1,0 +1,8 @@
+<h1> BIENVENUE sur la page de l'auteur <%= Gossip.find(@id).user.first_name %>!</h1>
+
+<p> Prénom: <%= Gossip.find(@id).user.first_name %> </p>
+<p> Nom: <%= Gossip.find(@id).user.last_name %> </p>
+<p> Description : <%= Gossip.find(@id).user.description %> </p>
+<p> Email : <%= Gossip.find(@id).user.email %> </p>
+<p> Age : <%= Gossip.find(@id).user.age %> </p>
+<p> Ville : <%= Gossip.find(@id).user.city_id %> </p>
