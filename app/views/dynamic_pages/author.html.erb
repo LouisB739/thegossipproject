@@ -1,8 +1,21 @@
-<h1> BIENVENUE sur la page de l'auteur <%= Gossip.find(@id).user.first_name %>!</h1>
+<h1> BIENVENUE sur la page de l'auteur <%= Gossip.find(@id).user.first_name %>,c'est le numéro <%= Gossip.find(@id).user_id %>!</h1>
 
 <p> Prénom: <%= Gossip.find(@id).user.first_name %> </p>
 <p> Nom: <%= Gossip.find(@id).user.last_name %> </p>
 <p> Description : <%= Gossip.find(@id).user.description %> </p>
 <p> Email : <%= Gossip.find(@id).user.email %> </p>
 <p> Age : <%= Gossip.find(@id).user.age %> </p>
-<p> Ville : <%= Gossip.find(@id).user.city_id %> </p>
+<p> Ville : <%= Gossip.find(@id).user.city.name %> </p>
+
+
+<p> Autres gossips du même auteur ... : 
+<ul>
+    <% Gossip.where(user_id=(Gossip.find(@id).user_id).to_s).each do |gossip| %>
+        
+			<li>   
+        <%= gossip.title %>
+        </li>
+    <%end %>
+    </ul>
+    
+    </p>

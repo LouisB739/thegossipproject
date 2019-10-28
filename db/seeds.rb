@@ -26,7 +26,7 @@ end
 puts "creation des users"
 
 20.times do 
-	Gossip.create!(title: Faker::ChuckNorris.fact,content:Faker::Lorem.paragraph, user_id: User.all.sample.id)
+	Gossip.create!(title: Faker::DcComics.title,content:Faker::ChuckNorris.fact, user_id: User.all.sample.id)
 end
 puts "creation des gossips"
 
