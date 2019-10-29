@@ -1,0 +1,21 @@
+<h1> BIENVENUE sur la page de l'auteur <%= Gossip.find(params[:id]).user.first_name %>,c'est le numéro <%= Gossip.find(params[:id]).user_id %>!</h1>
+
+<p> Prénom: <%= Gossip.find(params[:id]).user.first_name %> </p>
+<p> Nom: <%= Gossip.find(params[:id]).user.last_name %> </p>
+<p> Description : <%= Gossip.find(params[:id]).user.description %> </p>
+<p> Email : <%= Gossip.find(params[:id]).user.email %> </p>
+<p> Age : <%= Gossip.find(params[:id]).user.age %> </p>
+<p> Ville : <%= Gossip.find(params[:id]).user.city.name %> </p>
+
+
+<p> Autres gossips du même auteur ... : 
+<ul>
+    <% Gossip.where(user_id=(Gossip.find(params[:id]).user_id).to_s).each do |gossip| %>
+        
+			<li>   
+        <%= gossip.title %>
+        </li>
+    <%end %>
+    </ul>
+    
+    </p>

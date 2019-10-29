@@ -1,16 +1,17 @@
-class ApplicationController < ActionController::Base
+class AuthorController < ApplicationController
     def new
     end
 
     def create
     end
 
-    def 
-
     def show
+        
+        
     end
 
     def index
+      
     end
 
     def edit
@@ -21,6 +22,5 @@ class ApplicationController < ActionController::Base
 
     def destroy
     end
-
 
 end

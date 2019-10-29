@@ -1,11 +1,10 @@
-class ApplicationController < ActionController::Base
+class ContactController < ApplicationController
     def new
     end
 
     def create
     end
 
-    def 
 
     def show
     end
@@ -21,6 +20,5 @@ class ApplicationController < ActionController::Base
 
     def destroy
     end
-
 
 end
