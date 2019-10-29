@@ -2,10 +2,15 @@
 
 <html>
   <body>
-    <div class="alert alert-danger" role="alert">
-      <p id="alert"><%= flash.now[:alert] %></p>
-    </div>
 
+
+  <div class="container">
+      
+  <%= flash_messages %>
+
+  <%= yield %>
+</div><!-- /container -->
+  
     <div class="container">
       <h1> Créer ton nouveau potin !</h1>
       <%= form_tag url_for(action: 'create'), method: "post" do %>

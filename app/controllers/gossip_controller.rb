@@ -4,12 +4,15 @@ class GossipController < ApplicationController
 
     def create
       
-       gossip= Gossip.new(title: params['gossip_title'],content:params['gossip_content'], user_id: User.all.sample.id)
+       @gossip= Gossip.new(title: params['gossip_title'],content:params['gossip_content'], user_id: User.all.sample.id)
 
-       if gossip.save
-    	render 'gossip/index', to: 'gossip#index'
+       if @gossip.save
+        flash.now[:success] = "Le gossip a été enregistré"
+        render 'gossip/index', to: 'gossip#index'
+        
        else
-    	render 'gossip/new', to: 'gossip#new' 
+      flash.now[:error] = "Veuillez rentrer un titre (de plus de 3 caractères) et un contenu pour votre potin"
+    	render 'gossip/new' 
        end
 
     end

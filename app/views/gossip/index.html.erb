@@ -1,5 +1,15 @@
+<html>
+     <div class="container">
+      
+     <%= flash_messages %>
+
+     <%= yield %>
+   </div><!-- /container -->
+
 
 <h1> BIENVENUE  ! Ici c'est notre super site de potins, il est chouette, non ? </h1> <br>
+
+<%= link_to 'Clique ici pour créer un nouveau potin',new_gossip_path %> 
 
 <div class="card-columns"> 
 
@@ -27,6 +37,9 @@
 
     <% end %></p>
 </div>  
+
+
+</html>
 
      
 
