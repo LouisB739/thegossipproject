@@ -1,0 +1,13 @@
+
+
+<% @comment = Comment.all %>
+<% params[:controller] = 'comment' %>
+<% params[:action] = 'create' %>
+
+<%  Comment.where(gossip_id:params[:id]).each do |comment| %>
+    <%= comment.content %>
+        
+<%end%>
+
+
+<%= render partial: 'comment/form' %>

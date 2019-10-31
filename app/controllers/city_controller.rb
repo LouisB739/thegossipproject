@@ -1,12 +1,9 @@
-class ApplicationController < ActionController::Base
-    include SessionsHelper
+class CityController < ApplicationController
     def new
     end
 
     def create
     end
-
-    def 
 
     def show
     end
@@ -22,8 +19,4 @@ class ApplicationController < ActionController::Base
 
     def destroy
     end
-
-   
-
-
 end

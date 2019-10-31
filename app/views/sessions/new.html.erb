@@ -1,0 +1,23 @@
+<div class="container">
+      <h1> Connecte toi avec ton mail et ton mdp !</h1>
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >       
+        
+
+        <%= text_field_tag 'email'%>
+          <%= label_tag 'Ton mail' %>
+          <br>  
+          
+    
+        <%= password_field_tag 'password'%>
+        <%= label_tag 'Ton mdp' %>
+  
+        <br>  
+
+        <%= submit_tag "Valider", class: 'btn btn-primary btn-lg btn-submit col-4'  %>
+      <% end %>
+    </div>
+
+
+
+

@@ -27,6 +27,25 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" <%= link_to "Contact", contact_index_path %></a>
+        
+        <% if current_user %>
+
+        <li class="nav-item">
+        <a class="nav-link" <%= link_to "Se déconnecter", session_path(session.id), method: :delete %></a>
+
+
+        <%else%>
+
+        <li class="nav-item">
+        <a class="nav-link" <%= link_to "S'inscrire", new_user_path %></a>
+        
+        <li class="nav-item">
+        <a class="nav-link" <%= link_to "Se connecter", new_session_path %></a>
+
+        <% end %> 
+
+
+        
       </li> 
     </ul>
   </div>

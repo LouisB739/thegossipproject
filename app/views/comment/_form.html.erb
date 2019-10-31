@@ -1,0 +1,29 @@
+<div 
+<input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+
+</div>
+
+  <div class="container">
+    <h1> Poste un commentaire !</h1>
+    <%= form_with url: gossip_comment_index_path(params[:id]) do %>
+      <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
+      <input type="hidden" name="gossip_id" value= @gossip.id >  
+      <br /> 
+     
+        <%= text_field_tag 'content' %>
+        <%= label_tag 'Ton commentaire' %>
+  
+      <br /> 
+    
+      <%= submit_tag "Valider", class: 'btn btn-primary btn-lg btn-submit col-4'  %>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+
+<%= flash_messages %>
+
+     <%= yield %>
+   </div><!-- /container -->

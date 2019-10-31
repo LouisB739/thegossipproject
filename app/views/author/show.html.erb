@@ -1,16 +1,18 @@
-<h1> BIENVENUE sur la page de l'auteur <%= Gossip.find(params[:id]).user.first_name %>,c'est le numéro <%= Gossip.find(params[:id]).user_id %>!</h1>
+<h1> BIENVENUE sur la page de l'auteur <%= User.find(params[:id]).first_name %>,c'est le numéro <%= User.find(params[:id]).id %>!</h1>
 
-<p> Prénom: <%= Gossip.find(params[:id]).user.first_name %> </p>
-<p> Nom: <%= Gossip.find(params[:id]).user.last_name %> </p>
-<p> Description : <%= Gossip.find(params[:id]).user.description %> </p>
-<p> Email : <%= Gossip.find(params[:id]).user.email %> </p>
-<p> Age : <%= Gossip.find(params[:id]).user.age %> </p>
-<p> Ville : <%= Gossip.find(params[:id]).user.city.name %> </p>
+<p> Prénom: <%= User.find(params[:id]).first_name %> </p>
+<p> Nom: <%= User.find(params[:id]).last_name %> </p>
+<p> Description : <%= User.find(params[:id]).description %> </p>
+<p> Email : <%= User.find(params[:id]).email %> </p>
+<p> Age : <%= User.find(params[:id]).age %> </p>
+<p> Ville : <%= link_to "#{User.find(params[:id]).city.name}", city_path(User.find(params[:id]).city.id) %> </p>
+
+
 
 
 <p> Autres gossips du même auteur ... : 
 <ul>
-    <% Gossip.where(user_id=(Gossip.find(params[:id]).user_id).to_s).each do |gossip| %>
+    <% Gossip.where(user_id:(Gossip.find(params[:id]).user_id).to_s).each do |gossip| %>
         
 			<li>   
         <%= gossip.title %>

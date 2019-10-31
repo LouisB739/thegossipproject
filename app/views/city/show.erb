@@ -1,0 +1,22 @@
+
+
+
+<p> Nom de la ville : <%= City.find(params[:id]).name %></p>
+
+
+
+
+
+<p> Autres gossips de la même ville ... : 
+<ul>
+    <% Gossip.where(user_id:User.where(city_id:params[:id]).ids).each do |gossip| %>
+        
+			<li>   
+        <%= gossip.title %>
+        </li>
+    <%end %>
+    </ul>
+    
+    </p>
+
+

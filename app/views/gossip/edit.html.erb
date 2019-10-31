@@ -1,14 +1,8 @@
-
-
-<html>
-  <body>
-
-
-  <div class="container">
+<div class="container">
       
-  <%= flash_messages %>
+<%= flash_messages %>
 
-  <%= yield %>
+<%= yield %>
 </div><!-- /container -->
 
 
@@ -18,19 +12,18 @@
 
 </div>
 
-
     <div class="container">
-      <h1> Créer ton nouveau potin !</h1>
-      <%= form_tag url_for(action: 'create'), method: "post" do %>
+      <h1> Modifie ton potin !</h1>
+      <%= form_tag url_for(action: 'update'), method: "PATCH" do %>
         <input type="hidden" name="authenticity_token" value= <%= form_authenticity_token %> >
         <br /> 
        
-          <%= text_field_tag 'gossip_title' %>
+          <%= text_field_tag 'gossip_title' ,value= Gossip.find(params[:id]).title %>
           <%= label_tag 'Le titre' %>
     
         <br /> 
         
-          <%= text_field_tag 'gossip_content'%>
+          <%= text_field_tag 'gossip_content', value= Gossip.find(params[:id]).content%>
           <%= label_tag 'Dis nous tout' %>
         
         <br /> <br />

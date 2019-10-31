@@ -1,4 +1,6 @@
 <html>
+
+<body>
      <div class="container">
       
      <%= flash_messages %>
@@ -6,25 +8,33 @@
      <%= yield %>
    </div><!-- /container -->
 
+   <h1>   <span class="badge badge-secondary">The Gossip Project</span>Le site de gossip de THP</h1>
 
-<h1> BIENVENUE  ! Ici c'est notre super site de potins, il est chouette, non ? </h1> <br>
+<% if current_user %>
+<button type="button" class="btn btn-dark" style="margin-bottom:10px;">
 
-<%= link_to 'Clique ici pour créer un nouveau potin',new_gossip_path %> 
+<a <%= link_to 'Clique ici pour créer un nouveau potin',new_gossip_path %> </a>
 
-<div class="card-columns"> 
+</button>
+
+<%end%>
+
+
+<div class="row"> 
 
 
 <p><% Gossip.all.each do |gossip| %>
     
 
-  <div class="card border-primary mb-3">
+  <div class="card border-dark mb-3 mx-3 col-lg-3">
   <div class="card-header">
-   Potin n°<%= gossip.id %>
+   Gossip n°<%= gossip.id %>
+   <%= render 'like/like' %>
   </div>
-  <div class="card-body">
-    <p class="card-text"><%= gossip.title %>  </p>
+  <div class="card-body bg-light">
+    <p class="card-text "><%= gossip.title %>  </p>
     <footer class="blockquote-footer"><%= gossip.user.first_name %> </br> </br> </cite></footer>
-    <a class="btn btn-secondary" <%= link_to 'Lien vers le gossip',gossip_path(gossip.id) %> 
+    <a class="btn btn-dark" <%= link_to 'Lien vers le gossip',gossip_path(gossip.id) %> 
   </div>
   <div class="card-footer">
     </div>
@@ -38,7 +48,7 @@
     <% end %></p>
 </div>  
 
-
+</body>
 </html>
 
      

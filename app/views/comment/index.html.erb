@@ -1,0 +1,13 @@
+<h1>Tous les commentaires sur le gossip <%= @gossip.title %></h1>
+
+
+<% @comment.each do |comment |%>
+
+    <%= comment.content %>
+
+    <%end%>
+
+<%= flash_messages %>
+
+     <%= yield %>
+   </div><!-- /container -->

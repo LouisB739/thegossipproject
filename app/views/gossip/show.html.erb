@@ -1,12 +1,63 @@
+<div class="container">
+      
+     <%= flash_messages %>
+
+     <%= yield %>
+   </div><!-- /container -->
 
 
 
-<p> <%= Gossip.find(@id).user.first_name %>  </p>
-<br>
-<%= link_to "Lien vers la fiche de l'auteur", author_path  %> <br>
-<br>
-<p> Le titre de ce gossip est : <%= Gossip.find(@id).title %> </p>
-<br>
-<p> Le contenu du gossip est : <%= Gossip.find(@id).content %> </p>
-<br>
-<p> Il a été créé le : <%= Gossip.find(@id).created_at %> </p>
+
+<p> L'auteur s'appelle : <%= @my_gossip.user.first_name %>  </p>
+
+
+
+
+<p> Le titre de ce gossip est : <%= @my_gossip.title %> </p>
+
+<p> Le contenu du gossip est : <%= @my_gossip.content %> </p>
+
+<p> La ville de l'auteur : <%= @my_city.name %> </p>
+
+
+<%= link_to "Lien vers la ville de l'auteur", city_path(@my_city.id) %>
+
+<p> Il a été créé le : <%= @my_gossip.created_at %> </p>
+
+
+<% if current_user.id == @my_gossip.user.id%>
+
+<button type="button" class="btn btn-dark" style="margin-bottom:10px;">
+
+<a <%= link_to 'Clique ici pour éditer',edit_gossip_path(@my_gossip.id) %> </a>
+
+</button>
+
+<%end%>
+
+<div>
+
+<%= form_tag url_for(action: 'destroy'), method: "DELETE" do %>
+    <%= submit_tag "DESTRUCTION", class: 'btn btn-danger btn-lg btn-submit col-4'  %>
+      <% end %>
+      </div>
+
+
+
+
+
+
+<%= render 'comment/comments' %>
+
+
+
+
+
+
+
+
+
+
+
+
+
